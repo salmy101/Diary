@@ -1,10 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const InputTodo = () => {
+const CreateEntry = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const user_id = 1;
+  
+  const navigate = useNavigate();
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -18,10 +21,15 @@ const InputTodo = () => {
       console.log("response here", response);
       setTitle("");
       setText("");
+      navigate('/show');
+
     } catch (err) {
       console.error(err);
     }
   };
+
+ 
+
 
   return (
     <Fragment>
@@ -84,4 +92,4 @@ const InputTodo = () => {
   );
 };
 
-export default InputTodo;
+export default CreateEntry;
