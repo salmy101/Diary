@@ -11,7 +11,7 @@ function App() {
     <Fragment>
       <div className="container">
       <InputTodo />
-      <ListTodo />
+      {/* <ListTodo /> */}
       </div>
     </Fragment>
   );

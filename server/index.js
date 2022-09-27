@@ -13,10 +13,10 @@ app.use(express.json()); //req.body
 
 app.post("/entries", async (req, res) => {
   try {
-    const { title, text } = req.body;
+    const { user_id, title, text } = req.body;
     const newEntry = await pool.query(
-      "INSERT INTO entries (title, text) VALUES($1, $2) RETURNING *",
-      [title, text]
+      "INSERT INTO entries ( user_id ,title, text) VALUES($1, $2, $3) RETURNING *",
+      [user_id, title, text]
     );
 
     res.json(newEntry.rows[0]);
