@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import EditTodo from "./EditTodo";
+import EditTodo from "./EditEntry";
 import EntryCard from "./EntryCard";
 
 const ListEntries = () => {

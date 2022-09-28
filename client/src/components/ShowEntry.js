@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import EditEntry from "./EditEntry";
 
 const ShowEntry = () => {
   const { id } = useParams();
@@ -9,7 +10,6 @@ const ShowEntry = () => {
     try {
       const response = await fetch(`http://localhost:5000/entries/${id}`);
       const jsonData = await response.json(); //parse the json dta you get back
-      console.log("a single entry view", jsonData)
       setEntry(jsonData);
     } catch (err) {
       console.error(err.message);
@@ -52,9 +52,10 @@ const ShowEntry = () => {
           <p class="card-text">
           {entry.text}
           </p>
-          <a href="#" class="card-link">
+          <a href={`/edit/${id}`} class="card-link">
             Edit
           </a>
+          {/* <EditEntry props={...entry}/> */}
           <a href="#" class="card-link">
             Delete
           </a>

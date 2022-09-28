@@ -1,12 +1,20 @@
 import React, { Fragment, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const EditTodo = ({ todo }) => {
-  const [description, setDescription] = useState(todo.description);
 
-  const updateDescription = async () => {
+const EditEntry = ({ entry }) => {
+  const [title, setTitle] = useState(entry.title);
+  const [text, setText] = useState(entry.text);
+
+
+  const { id } = useParams();
+  console.log("id is here?",id)
+
+
+  const updateEntry = async () => {
     try {
-      const body = { description };
-      const response = await fetch(`http://localhost:5000/todos/${todo.id}`, {
+      const body = { title, text, id};
+      const response = await fetch(`http://localhost:5000/entries/${entry.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -20,7 +28,8 @@ const EditTodo = ({ todo }) => {
 
   return (
     <Fragment>
-      <button
+      <h1>EDIT ME</h1>
+      {/* <button
         type="button"
         class="btn btn-warning"
         data-toggle="modal"
@@ -63,9 +72,55 @@ const EditTodo = ({ todo }) => {
             </div>
           </div>
         </div>
+      </div> */}
+
+
+<form className="d-flex mt-5" onSubmit={updateEntry}
+>
+  <div class="form-group mb-4">
+        {/* <div class="form-group mb-4"> */}
+          <label>{entry.title}</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Entry Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        {/* </div> */}
+
+        {/* <div class="form-group mb-4">
+    <label for="description">Description</label>
+    <textarea id="description"  name="description" class="form-control">
+    </textarea>
+  </div> */}
+
+        {/* <div class="form-group mb-4"> */}
+          <label>Diary Entry</label>
+          <textarea
+            required
+            name="markdown"
+            id="markdown"
+            class="form-control"
+            placeholder="Dear Diary....."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          ></textarea>
+        {/* </div> */}
+{/* 
+        <a href="/" class="btn btn-secondary">
+          Cancel
+        </a> */}
+
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
       </div>
+      </form>
+
+
     </Fragment>
   );
 };
 
-export default EditTodo;
+export default EditEntry;

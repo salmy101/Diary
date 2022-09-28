@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Create from "./components/CreateEntry";
 import List from "./components/ListEntries";
 import ShowEntry from "./components/ShowEntry"
+import EditEntry2 from "./components/EditEntry2";
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/create" element={<Create />} />
           <Route path="/show" element={<List />} />
           <Route path="/show/:id" element={<ShowEntry />} />
+          <Route path="/edit/:id" element={<EditEntry2 />} />
           </Routes>
         </Router>
       </div>

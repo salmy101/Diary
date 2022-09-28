@@ -10,6 +10,9 @@ const EntryCard = (props) => {
     navigate(`/show/${id}`);
   };
 
+  const edit = () => {
+    navigate(`/edit/${id}`);
+  };
   
   return (
     <Fragment>
@@ -26,6 +29,9 @@ const EntryCard = (props) => {
             <div className="button mt-5">
               <button onClick={view} type="submit" class="btn btn-secondary">
                 view entry
+              </button>
+              <button onClick={edit} type="submit" class="btn btn-secondary">
+                edit entry
               </button>
             </div>
           </blockquote>

@@ -58,11 +58,11 @@ app.put("/entries/:id", async (req, res) => {
     const { id } = req.params;
     const { title, text } = req.body;
     const updateEntry = await pool.query(
-      "UPDATE todo SET title = $1 AND text = $2 WHERE id = $3",
-      [title, txt, id]
+      "UPDATE entries SET title = $1 AND text = $2 WHERE id = $3",
+      [title, text, id]
     );
 
-    res.json("Todo was updated!");
+    res.json("Entry was updated!");
   } catch (err) {
     console.error(err.message);
   }
