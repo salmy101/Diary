@@ -12,8 +12,10 @@ const EditEntry = ({ entry }) => {
 
 
   const updateEntry = async () => {
+    const user_id = 1;
+
     try {
-      const body = { title, text, id};
+      const body = { user_id, title, text, id};
       const response = await fetch(`http://localhost:5000/entries/${entry.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },

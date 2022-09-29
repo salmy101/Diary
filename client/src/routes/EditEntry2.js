@@ -20,9 +20,15 @@ const EditEntry2 = () => {
     getEntry();
   }, []);
 
+  console.log("the entry", entry)
+
   const navigate = useNavigate();
   const [title, setTitle] = useState(entry.title);
   const [text, setText] = useState(entry.text);
+  console.log("the title",entry.title)
+  console.log("the text",entry.text)
+
+
 
   const updateEntry = async () => {
     try {
@@ -34,17 +40,18 @@ const EditEntry2 = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+        console.log("AFTER", title)
+        console.log("AFTER", text)
         navigate('/show');
     } catch (err) {
       console.log(err.message);
     }
   };
 
-  console.log("the entry",entry)
 
   const reset = () => {
-    setTitle(title)
-    setText(text)
+    setTitle(entry.title)
+    setText(entry.text)
     navigate("/show")
 
   }
@@ -57,7 +64,6 @@ const EditEntry2 = () => {
 
       <form className="d-flex mt-5">
         <div class="form-group mb-4">
-          {/* <div class="form-group mb-4"> */}
           <label>Title</label>
           <input
             type="text"
@@ -65,27 +71,18 @@ const EditEntry2 = () => {
             value={entry.title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          {/* </div> */}
 
-          {/* <div class="form-group mb-4">
-    <label for="description">Description</label>
-    <textarea id="description"  name="description" class="form-control">
-    </textarea>
-  </div> */}
-
-          {/* <div class="form-group mb-4"> */}
+          <div class="form-group mb-4">
           <label>Diary Entry</label>
           <textarea
-            required
-            name="markdown"
-            id="markdown"
+            type="text"
             className="form-control"
             value={entry.text}
-            // onChange={(e) => setText(e.target.value)}
-            onChange={(e) => setText({...text, text:e.target.value })}
+            onChange={(e) => setText(e.target.value)}
+            // onChange={(e) => setText({...text, text:e.target.value })}
 
           ></textarea>
-          {/* </div> */}
+          </div>
           {/* 
         <a href="/" class="btn btn-secondary">
           Cancel
