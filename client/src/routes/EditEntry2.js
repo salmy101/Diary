@@ -1,65 +1,70 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 const EditEntry2 = () => {
-  const [entry, setEntry] = useState({});
+  // const [entry, setEntry] = useState({});
   const { id } = useParams();
+  const location = useLocation()
+  const { info } = location.state
+  // const { entry } = location.state || {}
 
-  const getEntry = async () => {
-    try {
-      const response = await fetch(`http://localhost:5000/entries/${id}`);
-      const jsonData = await response.json(); //parse the json dta you get back
-      // console.log("a single entry view", jsonData);
-      setEntry(jsonData);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
+  console.log("is the entry  here", info)
 
-  useEffect(() => {
-    getEntry();
-  }, []);
+  // const getEntry = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:5000/entries/${id}`);
+  //     const jsonData = await response.json(); //parse the json dta you get back
+  //     // console.log("a single entry view", jsonData);
+  //     setEntry(jsonData);
+  //   } catch (err) {
+  //     console.error(err.message);
+  //   }
+  // };
 
-  console.log("the entry", entry)
+  // useEffect(() => {
+  //   getEntry();
+  // }, []);
 
-  const navigate = useNavigate();
-  const [title, setTitle] = useState(entry.title);
-  const [text, setText] = useState(entry.text);
-  console.log("the title",entry.title)
-  console.log("the text",entry.text)
+  // console.log("the entry", entry)
 
-
-
-  const updateEntry = async () => {
-    try {
-      const body = { title, text, id };
-      const response = await fetch(
-        `http://localhost:5000/entries/${entry.id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
-        console.log("AFTER", title)
-        console.log("AFTER", text)
-        navigate('/show');
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
+  // const navigate = useNavigate();
+  // const [title, setTitle] = useState(entry.title);
+  // const [text, setText] = useState(entry.text);
+  // console.log("the title",entry.title)
+  // console.log("the text",entry.text)
 
 
-  const reset = () => {
-    setTitle(entry.title)
-    setText(entry.text)
-    navigate("/show")
 
-  }
+  // const updateEntry = async () => {
+  //   try {
+  //     const body = { title, text, id };
+  //     const response = await fetch(
+  //       `http://localhost:5000/entries/${entry.id}`,
+  //       {
+  //         method: "PUT",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify(body),
+  //       });
+  //       console.log("AFTER", title)
+  //       console.log("AFTER", text)
+  //       navigate('/show');
+  //   } catch (err) {
+  //     console.log(err.message);
+  //   }
+  // };
+
+
+  // const reset = () => {
+  //   setTitle(entry.title)
+  //   setText(entry.text)
+  //   navigate("/show")
+
+  // }
 
   return (
     <Fragment>
-      <h1>{entry.id}</h1>
-      <h1>{entry.title}</h1>
+      {/* <h1>{entry}</h1> */}
+      {/* <h1>{entry.title}</h1>
       <h1>{entry.text}</h1>
 
       <form className="d-flex mt-5">
@@ -87,7 +92,7 @@ const EditEntry2 = () => {
         <a href="/" class="btn btn-secondary">
           Cancel
         </a> */}
-          <button
+          {/* <button
             type="button"
             class="btn btn-warning"
             onClick={(e) => updateEntry(e)}
@@ -103,7 +108,7 @@ const EditEntry2 = () => {
             Close
           </button>
         </div>
-      </form>
+      </form> */} 
     </Fragment>
   );
 };

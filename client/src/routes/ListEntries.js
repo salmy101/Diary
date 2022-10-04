@@ -5,7 +5,7 @@ import EntryCard from "./EntryCard";
 const ListEntries = () => {
   const [entries, setEntries] = useState([]);
 
-  const getEntries = async () => {
+  const getEntries = async () => { //get all entries
     try {
       const response = await fetch("http://localhost:5000/entries");
       const jsonData = await response.json(); //parse the json dta you get back
