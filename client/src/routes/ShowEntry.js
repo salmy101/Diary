@@ -24,7 +24,7 @@ const ShowEntry = () => {
 
   return (
     <Fragment>
-      <h1>show single entry</h1>
+      <h1>Entry #{entry.id}</h1>
 
       {/* <div class="card bg-light mb-3">
         <div class="card-header">Header</div>
@@ -50,24 +50,24 @@ const ShowEntry = () => {
           <h5 class="card-title">{entry.title}</h5>
           <h6 class="card-subtitle mb-2 text-muted">{entry.created_at}</h6>
           <p class="card-text">{entry.text}</p>
-          {console.log(entry)}
 
-          <Link
+          {/* <Link
             to={{
               pathname: `/edit/${id}`,
               state: {
                 title: entry.title
               },
             }}
-          >
+            >
             edit!!
-          </Link>
+          </Link> */}
 
-          {/* 
+          
           <a href={`/edit/${id}`} class="card-link" props={entry}>
+          {console.log("-------" ,entry)}
             Edit
-          </a> */}
-          {/* <EditEntry props={...entry}/> */}
+          </a> 
+          {/* <EditEntry entry={entry}/> */}
           <a href="#" class="card-link">
             Delete
           </a>

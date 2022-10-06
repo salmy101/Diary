@@ -2,7 +2,8 @@ import React, { Fragment, useState } from "react";
 import { useParams } from "react-router-dom";
 
 
-const EditEntry = ({ entry }) => {
+const EditEntry = (props) => {
+  console.log("props.entry")
   const [title, setTitle] = useState(entry.title);
   const [text, setText] = useState(entry.text);
 

@@ -8,7 +8,7 @@ import Home from "./routes/Home";
 import Create from "./routes/CreateEntry";
 import List from "./routes/ListEntries";
 import ShowEntry from "./routes/ShowEntry";
-import EditEntry2 from "./routes/EditEntry2";
+import EditEntry from "./routes/EditEntry";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path="/show" element={<List />} />
             <Route path="/show/:id" element={<ShowEntry />} />
-            <Route path="/edit/:id" element={<EditEntry2 />} />
+            <Route path="/edit/:id" element={<EditEntry />} />
           </Routes>
         </Router>
       </div>
