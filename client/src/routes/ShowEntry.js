@@ -53,20 +53,31 @@ const ShowEntry = () => {
 
           {/* <Link
             to={{
-              pathname: `/edit/${id}`,
+              pathname: `/edit/${entry.id}`,
               state: {
-                title: entry.title
+                entry: entry
               },
             }}
             >
             edit!!
           </Link> */}
+           <Link
+            to={`/edit/${entry.id}`}
+            state={{entry: entry}}
+            // key={entry.id}
+            >
+              {/* <Entry 
+              title={entry.title}
+              text={entry.text}
+              user_id={entry.user_id}
+              /> */}
+            edit!!
+          </Link>
 
           
-          <a href={`/edit/${id}`} class="card-link" props={entry}>
-          {console.log("-------" ,entry)}
+          {/* <a href={`/edit/${id}`} class="card-link" props={entry}>
             Edit
-          </a> 
+          </a>  */}
           {/* <EditEntry entry={entry}/> */}
           <a href="#" class="card-link">
             Delete
