@@ -30,9 +30,9 @@ const EntryCard = (props) => {
               <button onClick={view} type="submit" class="btn btn-secondary">
                 view entry
               </button>
-              <button onClick={edit} type="submit" class="btn btn-secondary">
+              {/* <button onClick={edit} type="submit" class="btn btn-secondary">
                 edit entry
-              </button>
+              </button> */}
             </div>
           </blockquote>
         </div>

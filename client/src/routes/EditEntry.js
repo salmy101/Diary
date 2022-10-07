@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 const EditEntry = (props) => {
   const location = useLocation();
@@ -19,22 +19,35 @@ const EditEntry = (props) => {
   //   console.log("props.entry")
     const [title, setTitle] = useState(entry.title);
     const [text, setText] = useState(entry.text);
+    console.log("useState",title)
+    console.log("useState",text)
+
+
 
     const { id } = useParams();
     console.log("id is here?",id)
+    const navigate = useNavigate();
+
 
     const updateEntry = async () => {
-      const user_id = 1;
+      // const user_id = 1;
 
       try {
-        const body = { user_id, title, text, id};
+        const body = { title, text, id};
         const response = await fetch(`http://localhost:5000/entries/${entry.id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body),
         });
+        console.log("onSubmit",title)
+        console.log("onSubmit",text)
+        console.log(response)
 
-        // window.localStorage = "/";
+        navigate('/show');
+
+
+
+
       } catch (err) {
         console.log(err.message);
       }
@@ -42,7 +55,7 @@ const EditEntry = (props) => {
 
   return (
     <Fragment>
-      <h1>hello</h1>
+      <h1>Entry #{entry.id}</h1>
       <form className="d-flex mt-5" onSubmit={updateEntry}>
         <div class="form-group mb-4">
           {/* <div class="form-group mb-4"> */}
@@ -69,8 +82,8 @@ const EditEntry = (props) => {
             <label>Full Diary Entry</label>
             <textarea
               required
-              name="markdown"
-              id="markdown"
+              // name="markdown"
+              // id="markdown"
               class="form-control"
               placeholder="Dear Diary....."
               value={text}
@@ -82,8 +95,12 @@ const EditEntry = (props) => {
           Cancel
         </a> */}
 
-          <button type="submit" class="btn btn-primary">
-            Submit
+          <button 
+          type="submit" 
+          class="btn btn-primary"
+          onClick={(e) => updateEntry(e)}
+>
+            Edit
           </button>
         </div>
       </form>
