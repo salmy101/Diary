@@ -58,7 +58,9 @@ app.put("/entries/:id", async (req, res) => {
     const { id } = req.params;
     const { title, text } = req.body;
     const updateEntry = await pool.query(
-      "UPDATE entries SET title = $1 AND text = $2 WHERE id = $3",
+      `UPDATE entries 
+       SET title = $1, text = $2 
+       WHERE id = $3`,
       [title, text, id]
     );
 
