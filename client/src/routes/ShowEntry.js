@@ -22,6 +22,27 @@ const ShowEntry = () => {
     getEntry();
   }, []);
 
+
+
+
+
+
+  //delete function
+  const deleteEntry = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/entries/${id}`, {
+        method: "DELETE",
+      });
+      // setEntries(entries.filter((entry) => entry.id !== id));
+      console.log("delete todo");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+
+
   return (
     <Fragment>
       <h1>Entry #{entry.id}</h1>
@@ -79,7 +100,7 @@ const ShowEntry = () => {
             Edit
           </a>  */}
           {/* <EditEntry entry={entry}/> */}
-          <a href="#" class="card-link">
+          <a href="#" class="card-link ml-5" onClick={deleteEntry}>
             Delete
           </a>
         </div>

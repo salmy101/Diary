@@ -20,18 +20,18 @@ const ListEntries = () => {
     getEntries();
   }, []);
 
-  //delete function
-  const deleteEntry = async (id) => {
-    try {
-      const deleteEntry = await fetch(`http://localhost:5000/todos/${id}`, {
-        method: "DELETE",
-      });
-      setEntries(entries.filter((entry) => entry.id !== id));
-      console.log("delete todo");
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  // //delete function
+  // const deleteEntry = async (id) => {
+  //   try {
+  //     const deleteEntry = await fetch(`http://localhost:5000/todos/${id}`, {
+  //       method: "DELETE",
+  //     });
+  //     setEntries(entries.filter((entry) => entry.id !== id));
+  //     console.log("delete todo");
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   return (
     <div>
