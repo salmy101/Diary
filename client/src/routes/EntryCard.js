@@ -6,6 +6,7 @@ const EntryCard = (props) => {
   
   const {id, user_id, created_at, title, text} = props
   const navigate = useNavigate();
+
   const view = () => {
     navigate(`/show/${id}`);
   };
@@ -15,18 +16,18 @@ const EntryCard = (props) => {
   };
 
 
-    //delete function
-    const deleteEntry = async (id) => {
-      try {
-        const response = await fetch(`http://localhost:5000/entries/${id}`, {
-          method: "DELETE",
-        });
-        // setEntries(entries.filter((entry) => entry.id !== id));
-        console.log("delete entry");
-      } catch (err) {
-        console.error(err);
-      }
-    };
+    // //delete function
+    // const deleteEntry = async (id) => {
+    //   try {
+    //     const response = await fetch(`http://localhost:5000/entries/${id}`, {
+    //       method: "DELETE",
+    //     });
+    //     // setEntries(entries.filter((entry) => entry.id !== id));
+    //     console.log("delete entry");
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // };
   
   
   return (
@@ -45,9 +46,9 @@ const EntryCard = (props) => {
               <button onClick={view} type="submit" class="btn btn-secondary mr-5">
                 view entry
               </button>
-              <button onClick={view} type="submit" class="btn btn-secondary">
+              {/* <button onClick={view} type="submit" class="btn btn-secondary">
                 delete entry
-              </button>
+              </button> */}
               {/* <button onClick={edit} type="submit" class="btn btn-secondary">
                 edit entry
               </button> */}

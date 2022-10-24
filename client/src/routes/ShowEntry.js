@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import EditEntry from "./EditEntry";
 import { Link } from "react-router-dom";
 
 const ShowEntry = () => {
   const { id } = useParams();
   const [entry, setEntry] = useState({});
+  const navigate = useNavigate()
 
   const getEntry = async () => {
     //get one entry
@@ -23,23 +24,19 @@ const ShowEntry = () => {
   }, []);
 
 
-
-
-
-
   //delete function
   const deleteEntry = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/entries/${id}`, {
+      const response = await fetch(`http://localhost:5000/entries/${entry.id}`, {
         method: "DELETE",
       });
       // setEntries(entries.filter((entry) => entry.id !== id));
-      console.log("delete todo");
+      console.log("delete entry", response);
+      navigate("/show")
     } catch (err) {
       console.error(err);
     }
   };
-
 
 
 
