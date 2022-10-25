@@ -18,12 +18,12 @@ const Nav = () => {
       <li class="nav-item">
         <a class="nav-link" href="/show">Diary</a>
       </li>
-      <li class="nav-item">
+      {/* <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      </li> */}
     </ul>
   </div>
 </nav>

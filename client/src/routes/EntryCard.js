@@ -10,25 +10,6 @@ const EntryCard = (props) => {
   const view = () => {
     navigate(`/show/${id}`);
   };
-
-  const edit = () => {
-    navigate(`/edit/${id}`);
-  };
-
-
-    // //delete function
-    // const deleteEntry = async (id) => {
-    //   try {
-    //     const response = await fetch(`http://localhost:5000/entries/${id}`, {
-    //       method: "DELETE",
-    //     });
-    //     // setEntries(entries.filter((entry) => entry.id !== id));
-    //     console.log("delete entry");
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // };
-  
   
   return (
     <Fragment>
@@ -46,12 +27,6 @@ const EntryCard = (props) => {
               <button onClick={view} type="submit" class="btn btn-secondary mr-5">
                 view entry
               </button>
-              {/* <button onClick={view} type="submit" class="btn btn-secondary">
-                delete entry
-              </button> */}
-              {/* <button onClick={edit} type="submit" class="btn btn-secondary">
-                edit entry
-              </button> */}
             </div>
           </blockquote>
         </div>

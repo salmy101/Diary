@@ -46,7 +46,7 @@ const CreateEntry = () => {
           Add
         </button>
       </form> */}
-      <form className="d-flex mt-5" onSubmit={onSubmitForm}>
+      <form className="mt-5" onSubmit={onSubmitForm}>
   <div class="form-group mb-4">
         {/* <div class="form-group mb-4"> */}
           <label>Title</label>
@@ -69,8 +69,9 @@ const CreateEntry = () => {
           <label>Diary Entry</label>
           <textarea
             required
-            name="markdown"
-            id="markdown"
+            // name="markdown"
+            // id="markdown"
+            type="text"
             class="form-control"
             placeholder="Dear Diary....."
             onChange={(e) => setText(e.target.value)}
@@ -81,7 +82,7 @@ const CreateEntry = () => {
           Cancel
         </a> */}
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary mt-4">
           Submit
         </button>
       </div>

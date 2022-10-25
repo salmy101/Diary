@@ -79,18 +79,24 @@ const ShowEntry = () => {
             >
             edit!!
           </Link> */}
-           <Link
+
+<button
+            onClick={() =>
+              navigate(`/edit/${entry.id}`, { state: { entry: entry} })
+            }
+          
+            type="submit" class="btn btn-secondary mr-5"> Edit entry
+          </button>
+
+
+           {/* <Link
             to={`/edit/${entry.id}`}
             state={{entry: entry}}
             // key={entry.id}
             >
-              {/* <Entry 
-              title={entry.title}
-              text={entry.text}
-              user_id={entry.user_id}
-              /> */}
-            edit!!
-          </Link>
+          
+            Edit
+          </Link> */}
 
           
           {/* <a href={`/edit/${id}`} class="card-link" props={entry}>
