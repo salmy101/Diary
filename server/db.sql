@@ -23,5 +23,5 @@ VALUES ('Salma', 'Ibrahim', 'a@a.com', '123');
 
 
 INSERT INTO entries (user_id, title, text)
-VALUES (1, 'The Beginning of Summer', 'This is gonna be the best summmer ever
+VALUES (1, 'The Beginning of Summer', 'This is gonna be the best summer ever
 I have so many plans, from travel, to cafe hopping, and to building new projects. Its gonna be great!');

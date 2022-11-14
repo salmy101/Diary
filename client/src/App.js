@@ -9,6 +9,8 @@ import Create from "./routes/CreateEntry";
 import List from "./routes/ListEntries";
 import ShowEntry from "./routes/ShowEntry";
 import EditEntry from "./routes/EditEntry";
+import Dashboard from './/components/Dashboard';
+import Preferences from './/components/Preferences';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           <Nav />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/preferences" element={<Preferences />} />
+
             <Route path="/create" element={<Create />} />
             <Route path="/show" element={<List />} />
             <Route path="/show/:id" element={<ShowEntry />} />
