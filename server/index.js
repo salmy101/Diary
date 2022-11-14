@@ -7,8 +7,22 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json()); //req.body
 
-//ROUTES//
 
+
+//token api
+
+app.use('/login', (req, res) => { //
+  res.send({
+    token: 'test123'
+  });
+});
+
+
+
+
+
+
+//ROUTES//
 //create a entry
 
 app.post("/entries", async (req, res) => {
@@ -98,5 +112,5 @@ app.get("/users", async (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("server has started on port 5000");
+  console.log("server has started on port 5000 and API is running on http://localhost:5000/login");
 });
