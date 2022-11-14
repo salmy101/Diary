@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "./App.css";
 import Nav from ".//components/Nav";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -12,7 +12,15 @@ import EditEntry from "./routes/EditEntry";
 import Dashboard from './/components/Dashboard';
 import Preferences from './/components/Preferences';
 
+import Login from './/components/Login';
+
 function App() {
+  const [token, setToken] = useState()
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <Fragment>
       <div className="container">
@@ -22,6 +30,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/preferences" element={<Preferences />} />
+            <Route path="/login" element={<Login />} />
+
 
             <Route path="/create" element={<Create />} />
             <Route path="/show" element={<List />} />
